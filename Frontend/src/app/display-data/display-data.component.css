@@ -1,3 +1,13 @@
+.graph{
+    width:50%;
+    height:400px;
+    border-style: solid;
+    display: block;
+    margin:auto auto;
+    padding:0;
+    margin-bottom: 2em;
+}
+
 .dropdown {
     margin:10em auto;
     width:50%;

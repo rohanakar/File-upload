@@ -6,19 +6,25 @@ import { AppComponent } from './app.component';
 import { DisplayDataComponent } from './display-data/display-data.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UploadComponent } from './upload/upload.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DataService } from './data.service';
+import { FormsModule }   from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     DisplayDataComponent,
     NavbarComponent,
-    UploadComponent
+    UploadComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

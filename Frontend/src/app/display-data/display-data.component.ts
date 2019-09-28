@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-display-data',
@@ -7,14 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DisplayDataComponent implements OnInit {
 
-  constructor() { }
+  items ;
+
+  constructor(private dataService :DataService) { }
 
   ngOnInit() {
+      this.dataService.getFileList("/viewDataSetList").subscribe((response)=>{
+        this.items = response;
+      });
   }
-
-  items = [
-    "dasd",
-    "asdsad",
-    "adad"
-  ]
 }

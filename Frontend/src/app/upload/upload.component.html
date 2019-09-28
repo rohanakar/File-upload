@@ -1,24 +1,27 @@
 <div class="container">
-        <form id="fileUploadForm" 
-          action="/"
-          enctype="multipart/form-data">
-        <fieldset>
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
             <div class="form-horizontal">
                 <div class="form-group">
                     <div class="row">
                     <label class="control-label col-md-2 text-right" for="filename"><span>File</span></label>
                     <div class="col-md-10">
                         <div class="input-group">
-                            <input type="hidden" id="filename" name="filename" value="">
-                            <input type="file" id="uploadedFile" name="uploadedFile" class="form-control form-control-sm" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+                            <!-- <input type="hidden" #filename="ngModel" ngModel name="filename" value=""> -->
+                            <input type="file" 
+                                 #filename="ngModel"
+                                 ngModel name="filename" 
+                                 class="form-control form-control-sm" 
+                                 accept=".csv"
+                                 (change)="changeListener($event.target.files)"
+                                 >
                             <div class="input-group-btn">
-                                <input type="submit" value="Upload" class="rounded-0 btn btn-primary">
+                                <input type="submit" ngvalue="Upload" class="rounded-0 btn btn-primary">
                             </div>
                         </div>
+                        {{uploadResponse.message}}
                     </div>
                     </div>
                 </div>                        
-            </div>
-        </fieldset>    
-    </form>
+            </div>  
+            </form>
     </div>
